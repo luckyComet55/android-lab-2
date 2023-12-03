@@ -1,8 +1,6 @@
 package com.example.hw2.ui.notes
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -35,8 +33,8 @@ fun NotesListItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = note.title,
-                maxLines = 1,
+                text = note.text,
+                maxLines = 3,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f)
             )
@@ -57,7 +55,7 @@ fun NotesListItem(
 @Composable
 fun NotesItemPreview() {
     NotesListItem(
-        note = Note("Checkin", "Bluh", 1),
+        note = Note("Bluh", 1),
         onDeleteClick = {},
     )
 }
