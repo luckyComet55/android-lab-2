@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HW2</string>
     <string name="app_title">HSE Android</string>
+    <string name="editor_hint">Start typing…</string>
 </resources>

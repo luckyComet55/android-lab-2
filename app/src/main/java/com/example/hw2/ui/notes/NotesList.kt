@@ -15,18 +15,19 @@ import com.example.hw2.domain.Note
 @Composable
 fun NotesList(
     notes: List<Note>,
-    onItemClick: () -> Unit,
+    onItemClick: (Note) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier.clickable(onClick = onItemClick),
+        modifier = modifier,
         contentPadding = PaddingValues(8.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         items(notes) { note ->
             NotesListItem(
                 note = note,
-                onDeleteClick = {}
+                onDeleteClick = {},
+                onClick = { onItemClick(note) }
             )
         }
     }
