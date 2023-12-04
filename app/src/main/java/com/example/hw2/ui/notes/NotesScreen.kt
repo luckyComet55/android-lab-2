@@ -1,5 +1,6 @@
 package com.example.hw2.ui.notes
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,9 +11,11 @@ fun NotesScreen(
     modifier: Modifier = Modifier
 ) {
     Surface(modifier = modifier) {
-        NotesList(
-            notes = mockNotesData,
-            onItemClick = {}
-        )
+        Column {
+            NotesList(
+                notes = mockNotesData,
+                onDeleteClick = {}
+            )
+        }
     }
 }

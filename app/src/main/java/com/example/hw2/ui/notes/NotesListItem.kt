@@ -1,6 +1,5 @@
 package com.example.hw2.ui.notes
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -22,13 +21,11 @@ import com.example.hw2.domain.Note
 fun NotesListItem(
     note: Note,
     onDeleteClick: () -> Unit,
-    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Surface(
         shape = MaterialTheme.shapes.small,
         color = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = modifier.clickable { onClick() }
     ) {
         Row(
             modifier = modifier
@@ -60,6 +57,5 @@ fun NotesItemPreview() {
     NotesListItem(
         note = Note("Bluh", 1),
         onDeleteClick = {},
-        onClick = {}
     )
 }

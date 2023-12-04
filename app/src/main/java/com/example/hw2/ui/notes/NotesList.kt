@@ -1,6 +1,5 @@
 package com.example.hw2.ui.notes
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,7 +14,7 @@ import com.example.hw2.domain.Note
 @Composable
 fun NotesList(
     notes: List<Note>,
-    onItemClick: (Note) -> Unit,
+    onDeleteClick: (Note) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -26,8 +25,7 @@ fun NotesList(
         items(notes) { note ->
             NotesListItem(
                 note = note,
-                onDeleteClick = {},
-                onClick = { onItemClick(note) }
+                onDeleteClick = { onDeleteClick(note) },
             )
         }
     }
@@ -38,6 +36,6 @@ fun NotesList(
 fun NotesListPreview() {
     NotesList(
         notes = mockNotesData,
-        onItemClick = {}
+        onDeleteClick = {}
     )
 }
