@@ -15,7 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.hw2.ui.notes.NoteAddBlock
+import com.example.hw2.ui.notes.NotesListViewModel
 import com.example.hw2.ui.notes.NotesScreen
 import com.example.hw2.ui.theme.HW2Theme
 
@@ -33,6 +35,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeworkApp() {
+    val notesListViewModel: NotesListViewModel = viewModel()
     Scaffold(
         topBar = {
             TopAppBar(
@@ -45,7 +48,9 @@ fun HomeworkApp() {
         },
         bottomBar = {
             NoteAddBlock(
-                onAddButtonClick = { /*TODO*/ },
+                onAddButtonClick = { text ->
+                   notesListViewModel.addToList(text)
+                },
                 Modifier.padding(8.dp)
             )
         }
@@ -53,7 +58,8 @@ fun HomeworkApp() {
         NotesScreen(
             Modifier
                 .padding(paddingValues)
-                .fillMaxSize()
+                .fillMaxSize(),
+            notesListViewModel
         )
     }
 }

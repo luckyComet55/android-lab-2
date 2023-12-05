@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NoteAddBlock(
-    onAddButtonClick: () -> Unit,
+    onAddButtonClick: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var text by rememberSaveable(stateSaver = TextFieldValue.Saver) {
@@ -51,7 +51,7 @@ fun NoteAddBlock(
         )
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-            onClick = onAddButtonClick,
+            onClick = { onAddButtonClick(text.text) },
             modifier = Modifier.weight(1f)
         ) {
             Text(text = stringResource(id = R.string.add_note_btn))
